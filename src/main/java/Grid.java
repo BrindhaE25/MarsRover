@@ -1,45 +1,19 @@
+import java.util.Scanner;
+
 public class Grid {
-    private int rowStart;
-    private int rowEnd;
-    private int columnStart;
-    private int columnEnd;
 
-    public Grid(int rowStart, int rowEnd, int columnStart, int columnEnd) {
-        this.rowStart = rowStart;
-        this.rowEnd = rowEnd;
-        this.columnStart = columnStart;
-        this.columnEnd = columnEnd;
+    public static int LOWER_LEFT_COORDINATE;
+    public static int UPPER_RIGHT_COORDINATE;
+
+    public static void main(String args[]) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Please enter the coordinates");
+        String[] gridPosition = scanner.nextLine().split(" ");
+        LOWER_LEFT_COORDINATE = Integer.parseInt(gridPosition[0]);
+        UPPER_RIGHT_COORDINATE = Integer.parseInt(gridPosition[1]);
+
+
+
     }
 
-    public int getRowStart() {
-        return rowStart;
-    }
-
-    public void setRowStart(int rowStart) {
-        this.rowStart = rowStart;
-    }
-
-    public int getRowEnd() {
-        return rowEnd;
-    }
-
-    public void setRowEnd(int rowEnd) {
-        this.rowEnd = rowEnd;
-    }
-
-    public int getColumnStart() {
-        return columnStart;
-    }
-
-    public void setColumnStart(int columnStart) {
-        this.columnStart = columnStart;
-    }
-
-    public int getColumnEnd() {
-        return columnEnd;
-    }
-
-    public void setColumnEnd(int columnEnd) {
-        this.columnEnd = columnEnd;
-    }
 }
