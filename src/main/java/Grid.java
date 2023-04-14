@@ -1,19 +1,28 @@
-import java.util.Scanner;
-
 public class Grid {
+    private final int UPPER_LEFT_COORDINATE;
+    private final int UPPER_RIGHT_COORDINATE;
+    private final int LOWER_LEFT_COORDINATE = 0;
+    private final int LOWER_RIGHT_COORDINATE;
 
-    public static int LOWER_LEFT_COORDINATE;
-    public static int UPPER_RIGHT_COORDINATE;
-
-    public static void main(String args[]) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Please enter the coordinates");
-        String[] gridPosition = scanner.nextLine().split(" ");
-        LOWER_LEFT_COORDINATE = Integer.parseInt(gridPosition[0]);
-        UPPER_RIGHT_COORDINATE = Integer.parseInt(gridPosition[1]);
-
-
-
+    public Grid(int upperLeft, int upperRight) {
+        LOWER_RIGHT_COORDINATE = upperRight;
+        UPPER_RIGHT_COORDINATE = upperRight;
+        UPPER_LEFT_COORDINATE = upperLeft;
     }
 
+    public int getUpperLeftCoordinate() {
+        return UPPER_LEFT_COORDINATE;
+    }
+
+    public int getUpperRightCoordinate() {
+        return UPPER_RIGHT_COORDINATE;
+    }
+
+    public  int getLowerLeftCoordinate() {
+        return LOWER_LEFT_COORDINATE;
+    }
+
+    public int getLowerRightCoordinate() {
+        return LOWER_RIGHT_COORDINATE;
+    }
 }
