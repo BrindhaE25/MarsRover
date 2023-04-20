@@ -1,42 +1,27 @@
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class MarsRoverTest {
 
     @Test
     void shouldReturn2And3AndNAsPositionWhenTheInputSentIs2And3AndN() {
-        MarsRover marsRover = new MarsRover();
         Coordinate coordinate = new Coordinate(2,3);
         Position position = new Position(coordinate,Direction.N);
-        marsRover.setPosition(new String[]{"2","3","N"});
+        MarsRover marsRover = new MarsRover(position);
+
 
         assertEquals(position, marsRover.getPosition());
     }
 
-    @Test
-    void shouldReturnDirectionAsNullWhenTheInputSentIs2And3AndH() {
-        MarsRover marsRover = new MarsRover();
-        marsRover.setPosition(new String[]{"2","3","H"});
-
-        assertNull(marsRover.getPosition().getDirection());
-    }
 
     @Test
     void shouldReturnPositionAsWhenTheInitialPositionIsNAndCommandSentIsL() {
-        MarsRover marsRover = new MarsRover();
-        marsRover.setPosition(new String[]{"2","3","N"});
+        Position position = new Position(new Coordinate(2,3),Direction.N);
+        MarsRover marsRover = new MarsRover(position);
 
-        Position position = marsRover.move("L");
+        Position expectedPosition = marsRover.move(RoverCommand.L,new Grid(5,5));
 
-        assertEquals(Direction.W,position.getDirection());
-    }
-
-    @Test
-    void shouldReturnNullPointerExceptionWhenTheCommandSentIsH() {
-        MarsRover marsRover = new MarsRover();
-        marsRover.setPosition(new String[]{"2","3","N"});
-
-        assertThrows(NullPointerException.class, () ->         marsRover.move("H"));
+        assertEquals(Direction.W,expectedPosition.getDirection());
     }
 }

@@ -10,19 +10,9 @@ public class Grid {
         UPPER_LEFT_COORDINATE = upperLeft;
     }
 
-    public int getUpperLeftCoordinate() {
-        return UPPER_LEFT_COORDINATE;
-    }
+    public boolean isRoverMovedOffTheEdge(Coordinate coordinate) {
+        return !(coordinate.getX() >= LOWER_LEFT_COORDINATE && coordinate.getX() <= LOWER_RIGHT_COORDINATE &&
+                coordinate.getY() >= LOWER_LEFT_COORDINATE && coordinate.getY() <= UPPER_LEFT_COORDINATE);
 
-    public int getUpperRightCoordinate() {
-        return UPPER_RIGHT_COORDINATE;
-    }
-
-    public  int getLowerLeftCoordinate() {
-        return LOWER_LEFT_COORDINATE;
-    }
-
-    public int getLowerRightCoordinate() {
-        return LOWER_RIGHT_COORDINATE;
     }
 }
